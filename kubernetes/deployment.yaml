@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: laravel-kubernetes
+spec:
+  selector:
+    matchLabels:
+      run: laravel-kubernetes
+  template:
+    metadata:
+      labels:
+        run: laravel-kubernetes
+    spec:
+      containers:
+        - name: laravel-demo
+          image: 127.0.0.1:5100/laravel-kubernetes:1.0
+          ports:
+            - containerPort: 80
+          #env:
+            #- name: APP_KEY
+            #  value: base64:bGFyYXZlbHBhc3N3b3Jk    # laravelpassword
